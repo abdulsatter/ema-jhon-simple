@@ -10,7 +10,7 @@ const Shop = () => {
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://floating-anchorage-46584.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -19,7 +19,7 @@ const Shop = () => {
         const saveCart = getDatabaseCart();
         const productKeys = Object.keys(saveCart);
         // console.log(products, productKeys)
-        fetch('http://localhost:5000/productsByKeys', {
+        fetch('https://floating-anchorage-46584.herokuapp.com/productsByKeys', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(productKeys)
