@@ -41,6 +41,7 @@ function Login() {
                 setUser(signedInUser)
                 setLoggedInUser(signedInUser);
                 history.replace(from);
+               setUserToken()
                 // console.log(displayName, photoURL, email)
             })
             .catch(err => {
@@ -48,6 +49,14 @@ function Login() {
                 console.log(err.message);
             })
     };
+
+    const setUserToken = () =>{
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+            sessionStorage.setItem('token', idToken)
+          }).catch(function(error) {
+            // Handle error
+          });
+    }
 
     const handleSignOut = () => {
         firebase.auth().signOut()

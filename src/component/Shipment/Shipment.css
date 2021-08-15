@@ -13,3 +13,12 @@
 .error{
     color: red;
 }
+.main{
+    display: flex;
+    padding: 100px;
+}
+
+.half-width{
+    width: 500px;
+
+}
